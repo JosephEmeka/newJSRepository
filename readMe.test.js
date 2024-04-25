@@ -1,4 +1,4 @@
-let {filterScores, increaseScore, squareEachNumber, schedule, distributeBook} = require("./readMe.js");
+let {filterScores, increaseScore, squareEachNumber, schedule, distributeBook, addExpenses, modeOfArray} = require("./readMe.js");
 
 test("filter Students Scores ", ()=> {
     let testScores = [10, 50, 77, 91, 55, 89, 40 ];
@@ -32,20 +32,25 @@ test("distribute each book to member ", ()=> {
 })
 
 
-// test("expenses addition ", () => {
-//     let expenses = {
-//         "groceries": 150,
-//         "dinning out":100,
-//         "transportation": 50,
-//         "entertainment": 80};
-//     let result = 380
-//
-//     expect(addExpenses(expenses)).toEqual(result);
-// });
+test("expenses addition ", () => {
+    let expenses = {"groceries": 150, "dinning out":100, "transportation": 50, "entertainment": 80}
+    let result = 380
+    expect(addExpenses(expenses)).toEqual(result);
+});
 
 
 test("Student Class Timing at noon ", () => {
     let class_timings = ["9:00AM", "11:00AM", "1:00PM", "3:00PM", "5:00PM"];
     let result = ["1:00PM", "3:00PM", "5:00PM"];
     expect(schedule(class_timings)).toEqual(result);
+});
+
+
+test("find mode of array", () => {
+    let input = [1, 1, 2, 2, 2];
+    let result = [2];
+    let input1 =[3, 3, 3, 3, 1];
+    let result1 = [3]
+    expect( modeOfArray(input)).toEqual(result);
+    expect( modeOfArray(input1)).toEqual(result1);
 });
